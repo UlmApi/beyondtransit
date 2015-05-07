@@ -1,5 +1,9 @@
 # Beyond Transit
-Anlaufstelle für Dinge, die ÖPNV in D-A-CH tollererer machen könnten
+Dies ist momentan „nur“ ein Platzhalter für viel bessere Dinge, die hier eigentlich hinkommen hätten sollen, wenn die Zeit gereicht hätte. Wer Interesse an Open Transit hat, trage sich sehr gerne in die **Mailinglisten** (unten verlinkt) ein.
+
+Die **Folien** des [Vortrags von der re:publica](https://re-publica.de/session/public-transit-people-people) mit der Aufzeichnung und Annotationen folgen bald!
+
+**Was** man denn gerne an offenen Daten haben wollen würde, findet sich in der [Open-Data-FAQ](evu-daten-faq.md) in diesem Repository.
 
 ## Projekt: VDV-7030 aufarbeiten
 

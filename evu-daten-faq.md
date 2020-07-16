@@ -23,6 +23,10 @@ Für Sollfahrplandaten hat sich das GTFS-Format als de-facto-Standard etabliert.
 
 Auch in der Schweiz werden die Daten von der SBB [als HAFAS-Rohdaten-Format publiziert](http://fahrplanfelder.ch/fahrplandaten) (eine Doku liegt ebenfalls dort). Die Daten werden von einer unabhängigen Stelle [regelmässig auf GTFS umgerechnet](http://gtfs.geops.ch), wobei auch komplexere Modellierungsfälle wie Flügelungen berücksichtigt werden.
 
+Falls Echtzeitdaten im [GTFS-RT](https://developers.google.com/transit/gtfs-realtime/)-Format bereitgestellt werden, lassen sich diese Daten mit einem GTFS-Feed zu einer Gesamtlage mit Sollfahrplan und nur den Abweichungen über die Ist-Schnittstelle kombinieren. Diese Kombination ist im Vergleich zum klassischen VDV-Ansatz (Hafas, EFA oder neuerdings TRIAS) sehr datensparsam. Beim Ausfall der Echtzeitschnittstelle oder einem Netzausfall ist ein Rückfall auf den Sollfahrplan möglich. Analog funktioniert auch die Kombination von NeTEx und SIRI.
+
+Durch die [Delegierte Verordnung (EU) 1926/2017](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32017R1926) werden die Datenformate NeTEx und SIRI für die Veröffentlichung gefordert. Natürlich ist es zulässig und ggf. auch sinnvoll, sowohl NeTEx/SIRI als auch GTFS/GTFS-RT bereitzustellen.
+
 Theoretisch besteht die Möglichkeit, mit Linked Data verschiedene Datenquellen semantisch zu verknüpfen. Hierbei wird das Datenformat mit Semantikinformationen angereichert.
 
 ## Was könnte ein allgemeiner Mehrwert der Bereitstellung sein?
@@ -46,6 +50,7 @@ Die Bereitstellung kann letztlich für vier Gruppen interessant sein:
  * Offline-Apps, die rein mit dem Sollfahrplan arbeiten – unter Inkaufnahme, dass eventuelle Verspätungen oder Störungen nicht in das Routing einfließen. Dieser Anwendungsfall kann beispielsweise für Tourist_innen mit ausländischer SIM-Karte ohne oder mit nur sehr beschränktem Datenvolumen interessant sein – aber auch in Bereichen des ÖV, in denen nur sehr schwer mobiles Internet zu empfangen ist.
  * Robuste Fahrplanauskunft (oder auch realistische Fahrplanauskunft) bezieht heute typische Störungen noch nicht in die Offline-Planung ein (siehe oben). Er ist sicherlich nicht nur für Touristen interessant, sondern für alle ÖPNV-Nutzer_innen, die ihre Route vorher planen muss. Durch große Mengen von Realdaten können so auch sehr individuelle Reiseprofile berücksichtigt werden.
  * Deutlich individueller auf spezielle Anwendungsfälle zugeschnittene Beauskunftungen, beispielsweise eine Kombination bestimmter Verkehrsmitteln unter Ausschluss bestimmter Bahnhöfe mit variablen Umsteigezeiten. Dies kann interessant sein, um multimodale Auskünfte beispielsweise unter Berücksichtigung einer Fahrradnutzung (oder -mitnahme) oder unter Einbeziehung relevanter Daten aus Drittquellen zu ermöglichen.
+ * Konkrete Beispiele sind z.B. die seit ca. 2018 entstandenen lokalen [digitransit-Installationen](https://transportkollektiv.github.io/digitransit-setup/), die neben ÖV-Fahrplänen auch weitere Informationen wie Bikesharing, Carsharing, Parkhausauslastung uvm integrieren und kombinieren.
 
 ## Wären Sie bereit für die Nutzung der Schnittstelle Geld zu bezahlen? Wenn ja/nein, warum?
 
@@ -55,6 +60,8 @@ Das Ziel ist aus- und nachdrücklich **Open** Data – das bedeutet gemäß der 
 
 Wenn Daten nur gegen Geld erhältlich sind, „lohnt“ sich die Entwicklung von Lösungen demzufolge nur, wenn diese Kosten z.B. durch den Verkauf des fertigen Produkts wieder gedeckt werden können. Dies bedeutet eine prohibitive Hürde für Lösungen, die sehr kleine, spezielle Zielgruppen ansprechen, und kein breites Publikum – beispielsweise Menschen mit Mobilitätseinschränkungen, die ohnehin an vielen Stellen im bisherigen Eisenbahnverkehr benachteiligt werden. Während viele Beitragende in der Open-Data-Bewegung willens sind, Personenarbeitsstunden in erheblichem Gegenwert für die Lösung von Problemen zu investieren, dürfte der Wille, für die nötigen Daten auch noch Geld zu bezahlen, keine weite Verbreitung haben.
 Zudem leben viele (freie) Projekte vom Austausch –  beispielsweise, indem interessierte Nutzer_innen eines Programms Fehlerreporte oder sogar Bugfixes einreichen. Solch ein Austausch wäre unter unfreien Lizenzen nicht möglich, da die Beitragenden mangels eines eigenen API-Keys bzw. einer Nutzungslizenz keinen Zugriff auf die Datenquelle hätten.
+
+Zudem sollte bedacht werden, dass es sich bei den bereitgestellten Daten in der Regel um Faktendaten handelt, deren _Nachnutzung_ (sobald sie einmal veröffentlicht sind) nicht eingeschränkt werden kann. So sind beispielsweise bei reinen Fahrplan- oder Lagedaten regelmäßig nicht die notwendigen Hürden für die Schöpfungshöhe nach dem Urheberrecht erfüllt (vgl. [Kapitel 2.6 des Abschlussbericht zum FoPS 70.825](https://fragdenstaat.de/anfrage/abschlussbericht-forschungsvorhaben-nr-70825-eigentums-und-nutzungsrechte-im-offentlichen-verkehr/82918/anhang/FoPS_70825_AbschlussbeNAME.pdf). Vor dem Hintergrund ist auch die immer noch übliche Praxis, auf dem Urheberrecht basierende Lizenzverträge wie CC BY oder DL-DE BY auf die Datensätze anzuwenden, enorm fragwürdig. ([siehe auch](http://simia.net/wiki/Free_data))
 
 
 ## Welchen Nutzen sehen Sie in den Daten für die OpenData Community?
@@ -86,7 +93,7 @@ Nicht zuletzt sollten Aktualisierungen von Datensätzen möglichst unverzüglich
 
 ## Was sind die Tätigkeitsfelder der OpenData Community? An was wird sonst noch gearbeitet?
 
-Die Community bearbeitet ein weites Feld an Problemen; in der Regel geht es darum, den eigenen Alltag oder den seiner Mitmenschen zu vereinfachen, oder politisches Handeln nachvollziehbar zu machen. Eine abschließende Aufzählung dürfte umfangreich werden; als Beispiel sei auf die [Projektübersicht der Open Knowledge Labs der OKF](http://codefor.de) verwiesen, das auf dem [Code-for-America-Programm aus den USA](http://www.codeforamerica.org/) basiert.
+Die Community bearbeitet ein weites Feld an Problemen; in der Regel geht es darum, den eigenen Alltag oder den seiner Mitmenschen zu vereinfachen, oder politisches Handeln nachvollziehbar zu machen. Eine abschließende Aufzählung dürfte umfangreich werden; als Beispiel sei auf die [Projektübersicht der Open Knowledge Labs der OKF](http://codefor.de) verwiesen, das auf dem [Brigades-Programm von Code for America aus den USA](http://brigades.codeforamerica.org/) basiert.
 
 
 ## Evtl. weitere Sorgen, Ängste, Wünsche und Anregungen
@@ -106,6 +113,7 @@ Dieser Aufschrieb entstand kollaborativ durch Beitragende u.a. aus den Mailingli
 ### Changelog
 
  * 2015-04-20: Erste fixierte Version
+ * 2020-07-16: Kleinere Ergaenzungen bei Datenformaten und Beispielen
 
 ### How to contribute
 
